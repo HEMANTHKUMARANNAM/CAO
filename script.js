@@ -1,6 +1,6 @@
 function generateTable() {
     // Get the user-entered number
-    var number = document.getElementById("numberInput").value;
+    var number = document.getElementById("numberInput").value  * document.getElementById("numberInput2").value;
 
     // Validate the input
     if (!number || isNaN(number) || number <= 0) {
