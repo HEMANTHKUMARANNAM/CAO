@@ -1,18 +1,17 @@
 function generateTable() {
     // Get the user-entered number
-    // var number = document.getElementById("numberInput").value  * document.getElementById("numberInput2").value;
 
     var divident = document.getElementById("numberInput").value;
 
     var divisor = document.getElementById("numberInput2").value;
 
     // Validate the input
-    // if (!number || isNaN(number) || number <= 0) {
-    //     alert("Please enter a valid positive number.");
-    //     return;
-    // }
+    if ( (divident <=0 || divisor <=0)) {
+        alert("Please enter a valid positive number.");
+        return;
+    }
 
-
+    //...........................................................................TABLE
     var Q = deci2bin(divident);
     var M = deci2bin(divisor);
 
@@ -86,6 +85,25 @@ function generateTable() {
 
     // Display the table
     document.getElementById("tableContainer").innerHTML = tableHTML;
+
+    //..........................................................................................
+
+    var datahtml = "<p>DIVIDENT(Q) = " + divident  + " (" + deci2bin(divident)+ ")" +"</p>"
+    datahtml += "<p>DIVISOR(M) = " + divisor + " (" + deci2bin(divisor)+ ")"+"</p>"
+    document.getElementById("data").innerHTML = datahtml;
+
+
+    var finalhtml = "<p>QUOTIENT(Q) = " + Q  + " (" + bin2deci(Q) + ")" +"</p>"
+    finalhtml += "<p>Reminder(A) = " + A + " (" + bin2deci(A) + ")"+"</p>"
+    finalhtml += "<p>DIVIDENT = DIVISOR X QUIOTENT + REMAINDER </p>"
+    finalhtml += "<p>" + divident + " = " + divisor + " X " + bin2deci(Q) + " + " + bin2deci(A) + "</p>";
+
+    document.getElementById("final").innerHTML = finalhtml;
+
+
+
+
+
 }
 
 
@@ -106,6 +124,16 @@ function deci2bin(num)
 
 
 
+
+
+//.......................
+function bin2deci(num)
+{
+    let binaryNumber = String(num);
+    let decimal =parseInt(binaryNumber, 2);
+    return decimal;
+}
+//.........................
 
 
 
@@ -138,18 +166,6 @@ function addBinaryStrings(binaryString1, binaryString2) {
     return result;
 }
 //.....................................................
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
