@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Number Table Generator</title>
 </head>
 <body>
 
-    <img src="peakpx.jpg" alt="flowers"  height="60">
-    <h1>CAO WEBSITE</h1>
+    <div class="container">
+        <h1>Number Table Generator</h1>
+        <label for="numberInput">Enter a number:</label>
+        <input type="number" id="numberInput" min="1" required>
+        <button onclick="generateTable()">Generate Table</button>
+        <div id="tableContainer"></div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
