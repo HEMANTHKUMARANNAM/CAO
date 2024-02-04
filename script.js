@@ -51,19 +51,22 @@ function generateTable() {
     // }
 
     var n = A.length;
+
+    tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + M + "</td> <td>" + (A)+ "</td> <td>" + Q  + "</td>  <td>" + "INITIALIZE" + "</td         </tr>";
+
     
     for (let i = 0; i < Q.length; i++) {
         // shift left AQ
         A = A.substring(1) + Q.charAt(0);
         Q = Q.substring(1);
-        tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td>" + (A) + "</td> <td>" + Q + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
+        tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td>" + (A)+ "</td> <td>" + Q+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
 
         console.log(A);
         let A_temp = addBinaryStrings(String(A), String(complement));
 
         A_temp = A_temp.substring(A_temp.length - M.length);
 
-        tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td>" + (A_temp) + "</td> <td>" + Q + "</td>  <td>" + "A = A-M" + "</td         </tr>";
+        tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td>" + (A_temp) + "</td> <td>" + Q+"_"  + "</td>  <td>" + "A = A-M" + "</td         </tr>";
 
         if (A_temp.charAt(0) == '1') {
             Q = Q + "0";
