@@ -96,10 +96,10 @@ function generateTable() {
     document.getElementById("data").innerHTML = datahtml;
 
 
-    var finalhtml = "<p>QUOTIENT(Q) = " + Q  + " (" + bin2deci(Q) + ")" +"</p>"
-    finalhtml += "<p>Reminder(A) = " + A + " (" + bin2deci(A) + ")"+"</p>"
-    finalhtml += "<p>DIVIDENT = DIVISOR X QUIOTENT + REMAINDER </p>"
-    finalhtml += "<p>" + divident + " = " + divisor + " X " + bin2deci(Q) + " + " + bin2deci(A) + "</p>";
+    var finalhtml = '<p style="color: ' + "blue" + ';">' +  "QUOTIENT(Q) = " + Q  + " (" + bin2deci(Q) + ")" +"</p>"
+    finalhtml += '<p style="color: ' + "rgb(139, 128, 0)" + ';">' + "Reminder(A) = " + A + " (" + bin2deci(A) + ")"+"</p>"
+    finalhtml += '<p style="color: ' + "pink" + ';">' + "DIVIDENT = DIVISOR X QUIOTENT + REMAINDER </p>"
+    finalhtml += '<p style="color: ' + "red" + ';">' +  + divident + " = " + divisor + " X " + bin2deci(Q) + " + " + bin2deci(A) + "</p>";
 
     document.getElementById("final").innerHTML = finalhtml;
 
