@@ -4,15 +4,23 @@ body {
 }
 
 a {
-    display: block;
+    display: block; /* Change display to block */
     margin-bottom: 10px;
+    padding: 10px 20px; /* Adjust padding as needed */
     font-size: 18px;
     color: green;
     text-decoration: none;
+    border: 2px solid green; /* Add border */
+    border-radius: 5px; /* Add rounded corners */
+    transition: all 0.3s ease; /* Add smooth transition */
 }
 
-#title
-{
+a:hover {
+    background-color: green;
+    color: white;
+}
+
+#title {
     color: aqua;
     font-size: 30px;
     display: block;
