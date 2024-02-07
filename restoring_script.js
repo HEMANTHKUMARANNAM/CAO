@@ -26,7 +26,7 @@ function generateTable() {
     }
 
     if (M.length > Q.length) {
-        let len = M.length - Q.length;
+        let len = M.length - Q.length-1;
         for (let i = 0; i < len; i++) {
             Q = "0" + Q;
         }
@@ -36,7 +36,7 @@ function generateTable() {
 
     let A = "";
 
-    for (let i = 0; i < Q.length; i++) {
+    for (let i = 0; i < M.length+1; i++) {
         A = A + "0";
     }
 
@@ -45,7 +45,9 @@ function generateTable() {
 
 
     // Generate the table
-    var tableHTML = "<h2>Table for " + divident+"/"+ divisor + "</h2><table border='1'><tr><th>N</th><th>M</th><th>A</th><th>Q</th><th>Operation</th></tr>";
+    // var tableHTML = "<h2>Table for " + divident+"/"+ divisor + "</h2><table border='1'><tr><th>N</th><th>M</th><th>A</th><th>Q</th><th>Operation</th></tr>";
+    var tableHTML = "<h2 style='color: black;'>Table for " + divident + "/" + divisor + "</h2><table border='1'><tr><th style='color: black;'>N</th><th style='color: black;'>M</th><th style='color: black;'>A</th><th style='color: black;'>Q</th><th style='color: black;'>Operation</th></tr>";
+
     // for (var i = 1; i <= 10; i++) {
     //     tableHTML += "<tr><td>" + i + "</td><td>" + (i * number) + "</td><td>" + i + "</td></tr>";
     // }
@@ -64,11 +66,11 @@ function generateTable() {
         console.log(A);
         let A_temp = addBinaryStrings(String(A), String(complement));
 
-        A_temp = A_temp.substring(A_temp.length - M.length);
+        // A_temp = A_temp.substring(A_temp.length - M.length);
 
         tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td>" + (A_temp) + "</td> <td>" + Q+"_"  + "</td>  <td>" + "A = A-M" + "</td         </tr>";
 
-        if (A_temp.charAt(0) == '1') {
+        if (A_temp.charAt(0) == '0') {
             Q = Q + "0";
             tableHTML += "<tr>  <td>" + " " + "</td>  <td>" + M + "</td> <td>" + (A) + "</td> <td>" + Q + "</td>  <td>" + "Q[0]=0 And restore A" + "</td         </tr>";
         } else {
@@ -85,6 +87,10 @@ function generateTable() {
 
 
     tableHTML += "</table>";
+
+    A = A.substring(A.length - M.length);
+
+
 
     // Display the table
     document.getElementById("tableContainer").innerHTML = tableHTML;
