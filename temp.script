@@ -1,0 +1,7 @@
+
+    "<span style="color: red;">A.CHARAT(I)</span>
+    <span style="color: blue;">A.SUBSTRING()</span>"
+
+
+
+tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + " " + "</td> <td><span style='color: red;'>CHARAT(I)</span><span style='color: blue;'>.SUBSTRING()</span></td> <td>" + Q + "</td>  <td>" + "INITIALIZE" + "</td></tr>";
