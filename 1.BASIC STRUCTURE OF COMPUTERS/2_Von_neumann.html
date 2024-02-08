@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Structure</title>
+    <link rel="stylesheet" href="2_Von_Neumann.css">
+</head>
+<body>
+    <h1>Von Neumann Architecture</h1>
+
+    <div id="Mainpic">
+        <img src="Von_Neumen.png" width="650px" alt="flowers">
+    </div>
+
+    <p>Registers refer to high-speed storage areas in the CPU. The data processed by the CPU are fetched from the registers. There are different types of registers used in architecture:</p>
+    <ul>
+        <li><strong>Accumulator:</strong> Stores the results of calculations made by ALU. It holds the intermediate of arithmetic and logical operations. It acts as a temporary storage location or device.</li>
+        <li><strong>Program Counter (PC):</strong> Keeps track of the memory location of the next instructions to be dealt with. The PC then passes this next address to the Memory Address Register (MAR).</li>
+        <li><strong>Memory Address Register (MAR):</strong> It stores the memory locations of instructions that need to be fetched from memory or stored in memory.</li>
+        <li><strong>Memory Data Register (MDR):</strong> It stores instructions fetched from memory or any data that is to be transferred to, and stored in, memory.</li>
+        <li><strong>Current Instruction Register (CIR):</strong> It stores the most recently fetched instructions while it is waiting to be coded and executed.</li>
+        <li><strong>Instruction Buffer Register (IBR):</strong> The instruction that is not to be executed immediately is placed in the instruction buffer register IBR.</li>
+    </ul>
+
+    <h2>Buses</h2>
+    <p>Data is transmitted from one part of a computer to another, connecting all major internal components to the CPU and memory, by the means of Buses. Types:</p>
+    <ul>
+        <li><strong>Data Bus:</strong> It carries data among the memory unit, the I/O devices, and the processor.</li>
+        <li><strong>Address Bus:</strong> It carries the address of data (not the actual data) between memory and processor.</li>
+        <li><strong>Control Bus:</strong> It carries control commands from the CPU (and status signals from other devices) in order to control and coordinate all the activities within the computer.</li>
+    </ul>
+</body>
+</html>
