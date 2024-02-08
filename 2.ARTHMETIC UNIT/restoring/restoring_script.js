@@ -243,5 +243,10 @@ function calculateTwosComplement(onesComplement) {
 
 
 function goToTheory() {
-    window.location.href = "blank.html";
+    window.location.href = "restoring_theory.html";
 }
+
+
+window.addEventListener('popstate', function(event) {
+    window.location.href = '2_index.html'; // Replace with the URL of the website you want to link to
+});

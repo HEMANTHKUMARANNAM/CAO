@@ -62,7 +62,7 @@ th, td {
     justify-content: space-between; /* Distribute space between buttons */
 }
 
-    .half-width1 {
+.half-width1 {
     flex-basis: 50%; /* Each button occupies half of the container */
     background-color: #904caf;
 }
