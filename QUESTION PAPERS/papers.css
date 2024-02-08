@@ -30,3 +30,15 @@ body {
     margin-top: 50px;
     background-color: #d8e8dc;
 }
+
+#title {
+    color: aqua;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 50px;
+}
+
+#sub
+{
+    text-align: left;
+}
