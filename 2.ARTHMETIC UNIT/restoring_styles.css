@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 20px;
+    background-color: #d8e8dc;
 }
 
 .container {
@@ -54,3 +55,19 @@ th, td {
     margin-bottom: 10px;
     display: block;
 }
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between buttons */
+}
+
+    .half-width1 {
+    flex-basis: 50%; /* Each button occupies half of the container */
+    background-color: #904caf;
+}
+
+.half-width2 {
+    flex-basis: 50%; /* Each button occupies half of the container */
+}
+

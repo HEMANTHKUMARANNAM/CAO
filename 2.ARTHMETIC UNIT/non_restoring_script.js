@@ -26,7 +26,7 @@ function generateTable() {
     }
 
     if (M.length > Q.length) {
-        let len = M.length - Q.length;
+        let len = M.length - Q.length-1;
         for (let i = 0; i < len; i++) {
             Q = "0" + Q;
         }
@@ -36,7 +36,7 @@ function generateTable() {
 
     let A = "";
 
-    for (let i = 0; i < M.length+1; i++) {
+    for (let i = 0; i < M.length; i++) {
         A = A + "0";
     }
 
@@ -57,34 +57,65 @@ function generateTable() {
     tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + M + "</td> <td>" + (A)+ "</td> <td>" + Q  + "</td>  <td>" + "INITIALIZE" + "</td         </tr>";
     // tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + " " + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span style='color: blue;'>"+ A.substring(1) + "</span></td> <td>" + Q + "</td>  <td>" + "INITIALIZE" + "</td></tr>";
 
-    
-    for (let i = 0; i < Q.length; i++) {
-        // shift left AQ
-        A = A.substring(1) + Q.charAt(0);
+
+    for (let i = 0; i < M.length; i++) 
+    {
+        if (A.charAt(0) == '0') 
+        {
+            // Shift AQ
+            A = A.substring(1) + Q.charAt(0);
+            tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
+
+            // A = A-M
+            A =  addBinaryStrings(A,complement);
+
+            tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q+"_"  + "</td>  <td>" + "A = A-M" + "</td         </tr>";
+
+        }
+        else
+        {
+            // Shift AQ
+            A = A.substring(1) + Q.charAt(0);
+            tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
+            // A = A+M
+            A =  addBinaryStrings(A,M);
+            tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q+"_"  + "</td>  <td>" + "A = A+M" + "</td         </tr>";
+
+        }
+
         Q = Q.substring(1);
-        tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
 
-        console.log(A);
-        let A_temp = addBinaryStrings(String(A), String(complement));
+        if( A.length != M.length)
+        {
+            A = A.substring(1);
+        }
 
-        // A_temp = A_temp.substring(A_temp.length - M.length);
 
-        tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q+"_"  + "</td>  <td>" + "A = A-M" + "</td         </tr>";
-
-        if (A_temp.charAt(0) == '0') {
+        if( A.charAt(0) == '0')
+        {
+            Q = Q+ "1";
+        }
+        else
+        {
             Q = Q + "0";
-            tableHTML += "<tr>  <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q + "</td>  <td>" + "Q[0]=0 And restore A" + "</td         </tr>";
-        } else {
-            Q = Q + "1";
-            A = A_temp;
-            tableHTML += "<tr>  <td>" + " " + "</td>  <td>" + M +"</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q + "</td>  <td>" + "Q[0]=1" + "</td         </tr>";
         }
 
         n--;
 
 
+
     }
 
+    if( A.charAt(0) == "1")
+    {
+        A = addBinaryStrings(A , M);
+    }
+
+
+    if( A.length != M.length)
+    {
+        A = A.substring(1);
+    }
 
 
     tableHTML += "</table>";
