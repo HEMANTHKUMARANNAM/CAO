@@ -267,3 +267,10 @@ function calculateTwosComplement(onesComplement) {
 
 //.........................................................................
 
+
+
+
+function goToTheory() 
+{
+    window.location.href = "nonrestoringtheory.html";
+}
