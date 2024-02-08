@@ -6,6 +6,7 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    background-color: #d8e8dc;
 }
 
 h1 {
@@ -30,4 +31,12 @@ li {
 
 li strong {
     color: #28a745;
+}
+
+.pics
+{
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    /* height: 100vh; adjust as needed */
 }
