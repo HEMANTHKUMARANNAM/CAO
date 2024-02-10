@@ -66,3 +66,14 @@ button:hover {
     color: black;
     font-family: Arial, sans-serif;
 }
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    position: flex;
+    bottom: 0;
+    width: 100%;
+}
