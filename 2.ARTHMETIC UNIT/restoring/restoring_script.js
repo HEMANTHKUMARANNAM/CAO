@@ -6,7 +6,7 @@ function generateTable() {
     var divisor = document.getElementById("numberInput2").value;
 
     // Validate the input
-    if ( (divident <=0 || divisor <=0)) {
+    if ( (divident <0 || divisor <=0)) {
         alert("Please enter a valid positive number.");
         return;
     }
