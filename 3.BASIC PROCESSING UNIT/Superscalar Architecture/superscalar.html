@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="superscale.css">
+</head>
+<body>
+
+    <h1>Superscalar Architecture</h1>
+
+    <p>A more aggressive approach is to equip the processor with multiple processing units to handle several instructions in parallel in each processing stage. With this arrangement, several instructions start execution in the same clock cycle and the process is said to use multiple issue. Such processors are capable of achieving an instruction execution throughput of more than one instruction per cycle. They are known as ‘Superscalar Processors’.</p>
+
+    <div class = "pics">
+        <img src="Superscalar.png" alt="Superscalar Processor Diagram">
+    </div>
+
+
+    <h2>Advantages of Superscalar Architecture:</h2>
+    <ul>
+        <li>The compiler can avoid many hazards through judicious selection and ordering of instructions.</li>
+        <li>The compiler should strive to interleave floating point and integer instructions. This would enable the dispatch unit to keep both the integer and floating point units busy most of the time.</li>
+        <li>In general, high performance is achieved if the compiler is able to arrange program instructions to take maximum advantage of the available hardware units.</li>
+    </ul>
+
+    <h2>Disadvantages of Superscalar Architecture:</h2>
+    <ul>
+        <li>In a Superscalar Processor, the detrimental effect on performance of various hazards becomes even more pronounced.</li>
+        <li>Due to this type of architecture, problem in scheduling can occur.</li>
+    </ul>
+    
+</body>
+</html>
