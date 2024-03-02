@@ -9,8 +9,8 @@
 }
 
 .image-preview img {
-    width: 300px;
-    height: auto;
+    width: auto;
+    height: 300;
     margin-bottom: 10px;
 }
 
