@@ -3,9 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hazards.css">
     <title>Document</title>
 </head>
 <body>
+    <h1>HAZARDS</h1>
+
+    <h2>Hazards in Pipelining and Their Types</h2>
+    <p>In pipelined computer architectures, hazards refer to situations where the execution of instructions is disrupted or delayed, typically due to dependencies between instructions or conflicts within the pipeline stages. Hazards can negatively impact the performance and efficiency of the pipeline. There are several types of hazards:</p>
+    <ol>
+        <li><strong>Structural Hazards:</strong> These occur when the hardware resources required to execute instructions are not available concurrently.</li>
+        <li><strong>Data Hazards:</strong> Data hazards occur when there are dependencies between instructions that prevent them from executing in parallel. There are three subtypes of data hazards:
+            <ul>
+                <li><strong>Read After Write (RAW) Hazard:</strong> Also known as a data dependency hazard, this occurs when an instruction depends on the result of a previous instruction that has not yet completed.</li>
+                <li><strong>Write After Read (WAR) Hazard:</strong> This occurs when an instruction writes to a register or memory location that another instruction later reads from before the write operation is complete.</li>
+                <li><strong>Write After Write (WAW) Hazard:</strong> This occurs when two instructions write to the same destination, and the second write operation completes before the first one.</li>
+            </ul>
+        </li>
+        <li><strong>Control Hazards:</strong> Control hazards, also known as branch hazards, occur when the pipeline must make a decision about the next instruction to execute before the outcome of a branch instruction is determined.</li>
+    </ol>
+    <p>By identifying and addressing these hazards, designers can improve the efficiency and performance of pipelined processors. Various techniques such as forwarding, stalling, and speculative execution are used to mitigate the impact of hazards in pipelined architectures.</p>
+
+
+    <h2>Data Hazards</h2>
+    <ul>
+        <li>We must ensure that the results obtained when instructions are executed in a pipelined processor are identical to those obtained when the same instructions are executed sequentially.</li>
+        <li>Hazard occurs:</li>
+        <pre>
+            A ← 3 + A
+            B ← 4 × A
+        </pre>
+        <li>No hazard:</li>
+        <pre>
+            A ← 5 × C
+            B ← 20 + C
+        </pre>
+        <li>When two operations depend on each other, they must be executed sequentially in the correct order.</li>
+    </ul>
+
+    <div class = "pics">
+        <img src="datahazard.png" height="320" alt="Superscalar Processor Diagram">
+    </div>
+
+    <h2>Instruction Hazard</h2>
+    <ul>
+        <li>Whenever the stream of instructions supplied by the instruction fetch unit is interrupted, the pipeline stalls.</li>
+        <li>Cache miss</li>
+        <li>Branch misprediction</li>
+    </ul>
+
+    <div class = "pics">
+        <img src="instruction.png" height="320" alt="Superscalar Processor Diagram">
+    </div>
+
+
+    <h2>Structural Hazard</h2>
+    <p>A structural hazard occurs in pipelined computer architectures when the hardware resources required by one or more instructions are not available concurrently. This can happen when multiple instructions in the pipeline require access to the same hardware component at the same time, such as a memory unit, a functional unit (e.g., arithmetic logic unit), or a register file.</p>
+    <p>For example, if one instruction is currently using a hardware component, such as a memory unit, another instruction that requires access to the same memory unit may need to wait until it becomes available. This delay in accessing the hardware resource can cause a stall in the pipeline, reducing the efficiency of instruction execution.</p>
+    <p>In simpler terms, a structural hazard occurs when the hardware structure of the processor cannot support simultaneous access to certain resources required by multiple instructions in the pipeline. This can lead to performance degradation and inefficiencies in the execution of instructions.</p>
     
 </body>
 </html>

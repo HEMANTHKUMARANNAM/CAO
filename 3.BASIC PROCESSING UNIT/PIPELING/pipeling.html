@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pipeline.css">
     <title>Document</title>
-    <link rel="stylesheet" href="main_styles.css">
 </head>
 <body>
-    <div id = "title" style="color: rgb(62, 0, 128);"> 1.PIPELING </div>
+    <h1>PIPELING</h1>
 
+    <h2>What is a Pipeling?</h2>
+    <p>Pipelining is a technique used in computer architecture where the execution of instructions is overlapped in multiple stages. Each stage of the pipeline performs a specific operation on an instruction, allowing several instructions to be processed simultaneously. This enhances the throughput and efficiency of the CPU by reducing the time wasted waiting for one instruction to complete before starting the next one.</p>
+
+    <div class = "pics">
+        <img src="pipeline.png" height="120" alt="Superscalar Processor Diagram">
+    </div>
+
+    <h2>Advantages of Pipelining</h2>
+    <ol>
+        <li><strong>Increased Throughput:</strong> By allowing multiple instructions to be processed simultaneously, pipelining increases the overall throughput of the CPU. This means that more instructions can be executed in a given amount of time, leading to improved performance.</li>
+        <li><strong>Faster Execution:</strong> Pipelining reduces the time taken to execute individual instructions by overlapping their execution. This results in faster program execution and better responsiveness of the system.</li>
+        <li><strong>Better Resource Utilization:</strong> Since different stages of the pipeline can work concurrently, the CPU resources are utilized more efficiently. This means that the CPU is kept busy more of the time, reducing idle time and improving overall efficiency.</li>
+        <li><strong>Smoother Performance:</strong> Pipelining helps to smooth out the execution of instructions by breaking them down into smaller, more manageable stages. This can help to reduce bottlenecks and prevent large variations in execution time.</li>
+        <li><strong>Scalability:</strong> Pipelining can be scaled to accommodate different processing requirements. By adding more pipeline stages or optimizing existing stages, the pipeline can be tailored to meet specific performance goals or adapt to changes in workload.</li>
+    </ol>
+
+    <h2>Disadvantages of Pipelining</h2>
+    <ol>
+        <li><strong>Increased Complexity:</strong> Implementing pipelining adds complexity to the design of the CPU. Managing pipeline stages, handling hazards, and ensuring proper synchronization require sophisticated techniques, which can make the CPU design more intricate.</li>
+        <li><strong>Pipeline Hazards:</strong> Pipelining introduces the possibility of pipeline hazards, which are situations where the execution of one instruction is dependent on the result of a previous instruction. These hazards can lead to stalls in the pipeline, reducing its efficiency.</li>
+        <li><strong>Resource Wastage:</strong> In some cases, pipelining can result in resource wastage. For example, if a branch instruction is encountered and the pipeline has already fetched subsequent instructions, those instructions may need to be discarded, wasting resources.</li>
+        <li><strong>Increased Latency for Branches and Dependencies:</strong> Branch instructions and data dependencies can cause delays in the pipeline. Branch prediction techniques and forwarding mechanisms are used to mitigate these delays, but they can still impact performance.</li>
+        <li><strong>Difficulty in Handling Exceptions:</strong> Exception handling becomes more complex in pipelined architectures. When an exception occurs, the CPU must ensure that the pipeline is properly flushed and that the correct state is restored, which can add overhead and latency.</li>
+        <li><strong>Energy Consumption:</strong> Pipelining can increase energy consumption in the CPU due to the continuous operation of pipeline stages, even when they are not actively processing instructions. This can be a concern in mobile devices and other battery-powered systems where energy efficiency is crucial.</li>
+    </ol>
+    
 </body>
 </html>
