@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Datapath vs. Pipelined Datapath</title>
+  <style>
+    .diagram {
+      text-align: center;
+    }
+    .diagram table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+    .diagram td, .diagram th {
+      border: 1px solid black;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Datapath vs. Pipelined Datapath</h1>
+
+  <h2>Simple Datapath</h2>
+  <p>A sequential design where instructions are fetched, decoded, executed, memory accessed (if needed), and results written back, all in one clock cycle.</p>
+  <p>Efficient for simpler processors or cases where complex instructions are rare. Limited performance due to dependencies between stages.</p>
+
+  <h2>Diagram</h2>
+  <div class="diagram">
+    <table>
+      <tr>
+        <th>Fetch</th>
+        <th>Decode</th>
+        <th>Execute</th>
+        <th>Mem Access</th>
+        <th>Write Back</th>
+      </tr>
+      <tr>
+        <td>Data</td>
+        <td>Control</td>
+        <td>ALU</td>
+        <td>Data Mem</td>
+        <td>Reg File</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>Modified Datapath for Pipelining</h2>
+  <p>Improves performance by breaking down instruction processing into multiple stages (e.g., fetch, decode, execute, memory access, write back).</p>
+  <p>Instructions can be overlapped in execution, leading to faster throughput. Requires additional hardware (registers) to store intermediate results between stages.</p>
+
+  <h2>Diagram</h2>
+  <div class="diagram">
+    <table>
+      <tr>
+        <th>Fetch 1</th>
+        <th>Decode 1</th>
+        <th>Execute 1</th>
+        <th>Mem Access 1</th>
+        <th>Write Back 1</th>
+      </tr>
+      <tr>
+        <td colspan="5">(Registers between stages)</td>
+      </tr>
+      <tr>
+        <th>Fetch 2</th>
+        <th>Decode 2</th>
+        <th>Execute 2</th>
+        <th>Mem Access 2</th>
+        <th>Write Back 2</th>
+      </tr>
+      <tr>
+        <th>...</th>
+        <th>...</th>
+        <th>...</th>
+        <th>...</th>
+        <th>...</th>
+      </tr>
+    </table>
+  </div>
+
+  <h2>Explanation of Stages</h2>
+  <p>1. **Fetch:** Instruction is retrieved from memory.</p>
+  <p>2. **Decode:** Instruction is decoded to determine operation and operands.</p>
+  <p>3. **Execute:** Operation is performed in the ALU.</p>
+  <p>4. **Memory Access (optional):** Data is read from or written to memory if needed.</p>
+  <p>5. **Write Back:** Result is written back to the register file.</p>
+
+  <p>In a pipelined datapath, multiple instructions can be at different stages simultaneously, increasing efficiency. However, there can be dependencies between instructions that require additional control logic to handle stalls or hazards (situations where data is not yet available for the next stage).</p>
+
+  <h2>Key Differences</h2>
+  <ul>
+    <li><strong>Complexity:** Pipelined datapaths are more complex due to additional hardware and control logic.</li>
+    <li><strong>Performance:** Pipelined datapaths offer higher performance when instruction execution times are longer.</li>
+    <li><strong>Dependencies:** Pipelining requires careful handling of dependencies to avoid stalls.</li>
+  </ul>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processor Organization in Computer</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .diagram {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .register {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .arrow {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elements of a Processor</h1>
+
+    <p>The processor, also known as the Central Processing Unit (CPU), is the brain of a computer. Here's a breakdown of its organization along with a diagram for better understanding:</p>
+
+    <h2>Components of a Processor</h2>
+
+    <ul>
+        <li><strong>Control Unit (CU):</strong> The brain of the CPU, it fetches instructions from memory, decodes them, and directs other parts of the CPU to carry out those instructions.</li>
+        <li><strong>Arithmetic Logic Unit (ALU):</strong> Performs all the mathematical and logical operations based on the instructions received from the CU.</li>
+        <li><strong>Registers:</strong> These are small, high-speed memory locations that hold data and instructions currently being processed by the ALU and CU. There are different types of registers, each with a specific purpose:
+            <ul>
+                <li><strong>Accumulator (ACC):</strong> Stores the result of the most recent ALU operation.</li>
+                <li><strong>Memory Address Register (MAR):</strong> Holds the memory address from which data needs to be fetched or to which data needs to be written.</li>
+                <li><strong>Memory Data Register (MDR):</strong> Acts as a temporary storage location for data being transferred between the CPU and main memory.</li>
+                <li><strong>General Purpose Registers (GPRs):</strong> A set of versatile registers that can store various kinds of data for temporary use during program execution.</li>
+            </ul>
+        </li>
+        <li><strong>Cache:</strong> A small, fast memory that stores frequently accessed data and instructions to speed up processing.</li>
+    </ul>
+
+    <h2>Diagram</h2>
+
+    <div class="diagram-container">
+        <div class="diagram">
+            <img src="diagram.png" width="250px" alt="flowers">
+
+        </div>
+    </div>
+
+    <p>**Explanation of the Diagram:**</p>
+    <p>The diagram depicts the flow of information within the processor
