@@ -1,5 +1,9 @@
 /* styles.css */
 
+
+@media (min-width: 768px) {
+    /* Add your CSS styles for laptops/desktops here */
+    
 body {
     font-family: Arial, sans-serif;
     color: #333;
@@ -43,4 +47,81 @@ li strong {
     justify-content: center; /* horizontally center */
     align-items: center; /* vertically center */
     /* height: 100vh; adjust as needed */
+    img
+    {
+        height: 120;
+    }
 }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Example media query for mobile devices */
+@media (max-width: 767px) {
+    /* Add your CSS styles for mobile devices here */
+        
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-color: #d8e8dc;
+
+    margin-right: 10px; /* Margin for right side */
+    margin-bottom: 10px; /* Margin for bottom */
+    margin-left: 10px; /* Margin for left side */
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    margin: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+ol {
+    margin-left: 1px;
+}
+
+li {
+    margin-bottom: 1px;
+}
+
+li strong {
+    color: #28a745;
+}
+
+.pics
+{
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    /* height: 100vh; adjust as needed */
+
+
+}
+
+.pics img {
+    width: 100%; /* Make the image fill the width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures there's no extra space below the image */
+  }
+
+}
+
