@@ -1,4 +1,9 @@
-/* styles.css */
+
+
+/* Styles for laptops/desktops */
+@media only screen and (min-width: 768px) {
+    /* Add your laptop/desktop specific styles here */
+    /* styles.css */
 
 body {
     font-family: Arial, sans-serif;
@@ -44,3 +49,63 @@ li strong {
     align-items: center; /* vertically center */
     /* height: 100vh; adjust as needed */
 }
+
+   
+  }
+  
+  /* Styles for mobile devices */
+  @media only screen and (max-width: 767px) {
+
+    
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-color: #d8e8dc;
+
+    margin-right: 30px; /* Margin for right side */
+    margin-bottom: 30px; /* Margin for bottom */
+    margin-left: 30px; /* Margin for left side */
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    margin: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+ol {
+    margin-left: 40px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+li strong {
+    color: #28a745;
+}
+
+.pics
+{
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    /* height: 100vh; adjust as needed */
+}
+.pics img {
+    width: 100%; /* Make the image fill the width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures there's no extra space below the image */
+  }
+   
+  }
+  
