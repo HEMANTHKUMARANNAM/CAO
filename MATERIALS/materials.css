@@ -2,15 +2,17 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    display: inline-block;
 }
 
 .image-preview {
     text-align: center;
+    display: inline-block;
 }
 
 .image-preview img {
-    width: auto;
-    height: 300;
+    width: 150px;
+    height: auto;
     margin-bottom: 10px;
 }
 

@@ -2,10 +2,12 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    display: inline-block;
 }
 
 .image-preview {
     text-align: center;
+    display: inline-block;
 }
 
 .image-preview img {
