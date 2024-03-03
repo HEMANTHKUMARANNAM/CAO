@@ -12,9 +12,21 @@
     <h2>What is a Pipeling?</h2>
     <p>Pipelining is a technique used in computer architecture where the execution of instructions is overlapped in multiple stages. Each stage of the pipeline performs a specific operation on an instruction, allowing several instructions to be processed simultaneously. This enhances the throughput and efficiency of the CPU by reducing the time wasted waiting for one instruction to complete before starting the next one.</p>
 
+    <h2>Stages of Pipeling</h2>
+    <p>In computing, a pipeline refers to a series of processing stages where data is passed through each stage to perform a specific task. Here are the typical stages of a pipeline:</p>
+
+    <ol>
+    <li><strong>Fetch:</strong> In a CPU pipeline, the first stage is fetching instructions from memory. This involves fetching the next instruction to be executed from memory and moving it to the instruction decoder.</li>
+    <li><strong>Decode:</strong> Once the instruction is fetched, it needs to be decoded to determine the operation it represents and the operands involved. The decode stage typically converts the instruction into a set of control signals for subsequent stages.</li>
+    <li><strong>Execute:</strong> In this stage, the instruction is actually executed. This might involve arithmetic or logical operations, memory accesses, or other computations depending on the instruction type.</li>
+    <li><strong>Write Back:</strong> After the execution of the instruction, the result may need to be written back to a register or memory location. This stage completes the instruction execution and prepares for the next instruction.</li>
+    </ol>
+
     <div class = "pics">
         <img  src="pipeline.png"  alt="Superscalar Processor Diagram">
     </div>
+
+
 
     <h2>Advantages of Pipelining</h2>
     <ol>
