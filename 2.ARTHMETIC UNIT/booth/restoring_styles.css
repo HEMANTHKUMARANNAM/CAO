@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #d8e8dc;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    color: green;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #0ae023;
+    text-align: center;
+}
+
+
+
+
+#contact
+{
+    color: red;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between buttons */
+}
+
+.half-width1 {
+    flex-basis: 50%; /* Each button occupies half of the container */
+    background-color: #904caf;
+}
+
+.half-width2 {
+    flex-basis: 50%; /* Each button occupies half of the container */
+}
+

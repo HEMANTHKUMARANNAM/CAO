@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="restoring_styles.css">
+    <title>CAO PROBLEM SOLVER</title>
+</head>
+<body>
+
+    <div class="button-container">
+        <button class="half-width1">SOLVER</button>
+        <button class="half-width2" onclick="goToTheory()">THEORY</button>
+    </div>
+      
+
+    <div class="container">
+        <div id = "contact">website under development. Who want to contribute or feedback  contact 99220041106@klu.ac.in</div>
+        <h1 style="color: green">Booth Division Generator</h1>
+        <label for="numberInput">Enter a Divident:</label>
+        <input type="number" id="numberInput" min="1" required>
+        <label for="numberInput">Enter a Divisor:</label>
+        <input type="number" id="numberInput2" min="1" required>
+        <button onclick="generateTable()">Generate Table</button>
+        <div id = "data"></div>
+        <div id="tableContainer"></div>
+        <div id = "final" ></div>
+    </div>
+
+    <script src="restoring_script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="restoringtheory.css">
+    <title>CAO PROBLEM SOLVER</title>
+</head>
+<body>
+
+    <div class="button-container">
+        <button class="half-width1"  onclick="goTosolver()" >SOLVER</button>
+        <button class="half-width2">THEORY</button>
+    </div>
+
+    
+    <div>
+        <h1>
+            RESTORING DIVISION
+        </h1>
+    </div>
+
+    <div>
+        Restoring division is a method used in computer arithmetic to perform division operations. It's a type of non-restoring division algorithm. The restoring division algorithm works by repeatedly subtracting the divisor from the dividend, keeping track of the remainder, until the remainder is less than the divisor.
+In restoring division, after each subtraction, if the result is negative, instead of simply moving to the next step, a "restoring" step is performed by adding back the divisor to the result. This adjusts the result to ensure that it remains positive or zero.
+    </div>
+
+
+    <div id = "sub">
+        STEPS TO BE FOLLOWED : 
+        <ul>
+            <li>Convert divident,divisor into binary numbers</li>
+            <li>Make the length of the binary numbers same</li>
+            <li>Length of A should be n+1 where length is length of divident binary</li>
+            <li>Cheese</li>
+          </ul>
+    </div>
+
+    <div id = "sub">
+
+        EXAMPLE : 7/3
+
+    </div>
+
+    <div class="pics">
+        <img src="restoringoutput.png" width="350px" alt="flowers">
+    </div>
+
+    <div class="empty-lines">
+        <!-- Add multiple empty lines by inserting <br> tags -->
+        <br><br><br>
+    </div>
+
+
+    <footer>
+        <a style="color: wheat;" href="https://github.com/HEMANTHKUMARANNAM/Restoring">Visit Java Code </a>
+    </footer>
+
+    
+
+
+    
+</body>
+
+<script>
+    function goTosolver() 
+    {
+        window.location.href = "restoring.html";
+    }
+</script>
+</html>
+
