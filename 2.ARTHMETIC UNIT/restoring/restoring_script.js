@@ -44,6 +44,53 @@ function generateTable() {
 
 
 
+    // // Generate the table
+    // // var tableHTML = "<h2>Table for " + divident+"/"+ divisor + "</h2><table border='1'><tr><th>N</th><th>M</th><th>A</th><th>Q</th><th>Operation</th></tr>";
+    // var tableHTML = "<h2 style='color: black;'>Table for " + divident + "/" + divisor + "</h2><table border='1'><tr><th style='color: black;'>N</th><th style='color: black;'>M</th><th style='color: black;'>A</th><th style='color: black;'>Q</th><th style='color: black;'>Operation</th></tr>";
+
+    // // for (var i = 1; i <= 10; i++) {
+    // //     tableHTML += "<tr><td>" + i + "</td><td>" + (i * number) + "</td><td>" + i + "</td></tr>";
+    // // }
+
+    // var n = A.length-1;
+
+    // const len = A.length-2;
+
+    // tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + M + "</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q  + "</td>  <td>" + "INITIALIZE" + "</td         </tr>";
+    // // tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + " " + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span style='color: blue;'>"+ A.substring(1) + "</span></td> <td>" + Q + "</td>  <td>" + "INITIALIZE" + "</td></tr>";
+
+    
+    // for (let i = 0; i < Q.length; i++) {
+    //     // shift left AQ
+    //     A = A.substring(1) + Q.charAt(0);
+    //     Q = Q.substring(1);
+    //     tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td>    <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;'>"+ Q.substring(len-i)+"_" + "</span></td>        <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
+
+    //     console.log(A);
+    //     let A_temp = addBinaryStrings(String(A), String(complement));
+
+    //     // A_temp = A_temp.substring(A_temp.length - M.length);
+
+    //     tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: brown;'>" + A_temp.charAt(0) +"</span><span >"+ A_temp.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;' >"+ Q.substring(len-i)+"_" + "</span></td>    <td>" + "A = A-M" + "</td         </tr>";
+
+    //     if (A_temp.charAt(0) == '0') {
+    //         Q = Q + "0";
+    //         tableHTML += "<tr>  <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;'>"+ Q.substring(len-i)+ "</span></td>    <td>" + "Q[0]=0 And restore A" + "</td         </tr>";
+    //     } else {
+    //         Q = Q + "1";
+    //         A = A_temp;
+    //         tableHTML += "<tr>  <td>" + " " + "</td>  <td>" + M +"</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;'>"+ Q.substring(len-i) + "</span></td>   <td>" + "Q[0]=1" + "</td         </tr>";
+    //     }
+
+    //     n--;
+
+
+    // }
+
+    // tableHTML += "</table>";
+
+
+    
     // Generate the table
     // var tableHTML = "<h2>Table for " + divident+"/"+ divisor + "</h2><table border='1'><tr><th>N</th><th>M</th><th>A</th><th>Q</th><th>Operation</th></tr>";
     var tableHTML = "<h2 style='color: black;'>Table for " + divident + "/" + divisor + "</h2><table border='1'><tr><th style='color: black;'>N</th><th style='color: black;'>M</th><th style='color: black;'>A</th><th style='color: black;'>Q</th><th style='color: black;'>Operation</th></tr>";
@@ -87,9 +134,10 @@ function generateTable() {
 
     }
 
-
-
     tableHTML += "</table>";
+
+
+
 
     A = A.substring(A.length - M.length);
 
