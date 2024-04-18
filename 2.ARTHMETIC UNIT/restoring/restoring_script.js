@@ -71,7 +71,7 @@ function generateTable() {
 
         // A_temp = A_temp.substring(A_temp.length - M.length);
 
-        tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;' >"+ Q.substring(len-i)+"_" + "</span></td>    <td>" + "A = A-M" + "</td         </tr>";
+        tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: brown;'>" + A_temp.charAt(0) +"</span><span >"+ A_temp.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;' >"+ Q.substring(len-i)+"_" + "</span></td>    <td>" + "A = A-M" + "</td         </tr>";
 
         if (A_temp.charAt(0) == '0') {
             Q = Q + "0";
