@@ -306,3 +306,8 @@ function calculateTwosComplement(onesComplement) {
 
 
 
+
+function goToTheory() 
+{
+    window.location.href = "restoring_theory.html";
+}
