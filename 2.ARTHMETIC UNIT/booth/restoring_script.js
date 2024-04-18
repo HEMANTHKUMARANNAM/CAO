@@ -1,123 +1,228 @@
-function generateTable() {
-    // Get the user-entered number
 
-    var divident = document.getElementById("numberInput").value;
+function generateTable()
+{
+    var m1 = document.getElementById("numberInput").value;
+    var m2 = document.getElementById("numberInput2").value;
 
-    var divisor = document.getElementById("numberInput2").value;
+    var datahtml = "<p>MULTIPLICANT(M) = " + m1  + " (" + deci2bin(m1)+ ")" +"</p>"
+    datahtml += "<p>MULTIPLIER(Q) = " + m2 + " (" + deci2bin(m2)+ ")"+"</p>"
 
-    // Validate the input
-    if ( (divident <0 || divisor <=0)) {
-        alert("Please enter a valid positive number.");
-        return;
-    }
+    datahtml += "<p>-M = "   + convert(deci2bin(m1))  +"</p>"
 
-    //...........................................................................TABLE
-    var Q = deci2bin(divident);
-    var M = deci2bin(divisor);
-
-    console.log(M +" " + Q);
-
-     // SIZEFIXER
-    if (Q.length > M.length) {
-        let len = Q.length - M.length;
-        for (let i = 0; i < len; i++) {
-            M = "0" + M;
-        }
-    }
-
-    if (M.length > Q.length) {
-        let len = M.length - Q.length;
-        for (let i = 0; i < len; i++) {
-            Q = "0" + Q;
-        }
-    }
-
-    const complement = convert(M);
-
-    let A = "";
-
-    for (let i = 0; i < M.length+1; i++) {
-        A = A + "0";
-    }
-
-    console.log(M +" " + Q + "A" + complement);
+    datahtml += "<p>-Q = " +  convert(deci2bin(m2))  +"</p>"
 
 
-
-    // Generate the table
-    // var tableHTML = "<h2>Table for " + divident+"/"+ divisor + "</h2><table border='1'><tr><th>N</th><th>M</th><th>A</th><th>Q</th><th>Operation</th></tr>";
-    var tableHTML = "<h2 style='color: black;'>Table for " + divident + "/" + divisor + "</h2><table border='1'><tr><th style='color: black;'>N</th><th style='color: black;'>M</th><th style='color: black;'>A</th><th style='color: black;'>Q</th><th style='color: black;'>Operation</th></tr>";
-
-    // for (var i = 1; i <= 10; i++) {
-    //     tableHTML += "<tr><td>" + i + "</td><td>" + (i * number) + "</td><td>" + i + "</td></tr>";
-    // }
-
-    var n = A.length-1;
-
-    const len = A.length-2;
-
-    tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + M + "</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q  + "</td>  <td>" + "INITIALIZE" + "</td         </tr>";
-    // tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + " " + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span style='color: blue;'>"+ A.substring(1) + "</span></td> <td>" + Q + "</td>  <td>" + "INITIALIZE" + "</td></tr>";
-
-    
-    for (let i = 0; i < Q.length; i++) {
-        // shift left AQ
-        A = A.substring(1) + Q.charAt(0);
-        Q = Q.substring(1);
-        tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td>    <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;'>"+ Q.substring(len-i)+"_" + "</span></td>        <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
-
-        console.log(A);
-        let A_temp = addBinaryStrings(String(A), String(complement));
-
-        // A_temp = A_temp.substring(A_temp.length - M.length);
-
-        tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: brown;'>" + A_temp.charAt(0) +"</span><span >"+ A_temp.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;' >"+ Q.substring(len-i)+"_" + "</span></td>    <td>" + "A = A-M" + "</td         </tr>";
-
-        if (A_temp.charAt(0) == '0') {
-            Q = Q + "0";
-            tableHTML += "<tr>  <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;'>"+ Q.substring(len-i)+ "</span></td>    <td>" + "Q[0]=0 And restore A" + "</td         </tr>";
-        } else {
-            Q = Q + "1";
-            A = A_temp;
-            tableHTML += "<tr>  <td>" + " " + "</td>  <td>" + M +"</td> <td><span style='color: brown;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td>  <td><span >" + Q.substring(0,len-i) +"</span><span style='color: black;'>"+ Q.substring(len-i) + "</span></td>   <td>" + "Q[0]=1" + "</td         </tr>";
-        }
-
-        n--;
-
-
-    }
-
-
-
-    tableHTML += "</table>";
-
-    A = A.substring(A.length - M.length);
-
-
-
-    // Display the table
-    document.getElementById("tableContainer").innerHTML = tableHTML;
-    // document.createElement('tableContainer').style.border = "200px black solid";
-
-    //..........................................................................................
-
-    var datahtml = "<p>DIVIDENT(Q) = " + divident  + " (" + deci2bin(divident)+ ")" +"</p>"
-    datahtml += "<p>DIVISOR(M) = " + divisor + " (" + deci2bin(divisor)+ ")"+"</p>"
     document.getElementById("data").innerHTML = datahtml;
 
 
-    var finalhtml = '<p style="color: ' + "blue" + ';">' +  "QUOTIENT(Q) = " + Q  + " (" + bin2deci(Q) + ")" +"</p>"
-    finalhtml += '<p style="color: ' + "rgb(139, 128, 1)" + ';">' + "Reminder(A) = " + A + " (" + bin2deci(A) + ")"+"</p>"
-    finalhtml += '<p style="color: ' + "green" + ';">' + "DIVIDENT = DIVISOR X QUIOTENT + REMAINDER </p>"
-    finalhtml += '<p style="color: ' + "red" + ';">' +  + divident + " = " + divisor + " X " + bin2deci(Q) + " + " + bin2deci(A) + "</p>";
-
-    document.getElementById("final").innerHTML = finalhtml;
 
 
-
-
-
+    boothMultiplication(m1, m2);
 }
+
+// Function to perform binary Addition
+function addition(a, b) {
+    const n = a.length;
+    const m = b.length;
+    const l = Math.max(n, m);
+    a = a.padStart(l, '0');
+    b = b.padStart(l, '0');
+    let carry = 0;
+    let ans = '';
+
+    for (let i = l - 1; i >= 0; i--) {
+        const tem = carry + parseInt(a[i]) + parseInt(b[i]);
+        if (tem < 2) {
+            ans = tem + ans;
+            carry = 0;
+        } else if (tem === 2) {
+            ans = '0' + ans;
+            carry = 1;
+        } else if (tem === 3) {
+            ans = '1' + ans;
+            carry = 1;
+        }
+    }
+
+    ans = '0'.repeat(l - ans.length) + ans;
+    return ans;
+}
+
+// Function to perform 1's Complement
+function onesComplement(num) {
+    let comp = '';
+    for (const c of num) {
+        comp += c === '0' ? '1' : '0';
+    }
+    return comp;
+}
+
+// Function to perform 2's Complement
+function twosComplement(num) {
+    const oneCom = onesComplement(num);
+    return addition(oneCom, '1');
+}
+
+// Function to Convert number to binary
+function setBin(num) {
+    let binary = '';
+    let decimal = Math.abs(num);
+    while (decimal > 0) {
+        binary = (decimal % 2 === 1 ? '1' : '0') + binary;
+        decimal = Math.floor(decimal / 2);
+    }
+    return binary || '0';
+}
+
+// Function to set Binary as signed (by 2's complement)
+function setSigned(d, num) {
+    if (d >= 0) {
+        return '0' + num;
+    } else {
+        return '1' + twosComplement(num);
+    }
+}
+
+// // Main function to perform binary multiplication using Booth's algorithm
+// function boothMultiplication(multiplicand, multiplier) {
+//     let output = '';
+
+//     let n1 = setBin(multiplicand);
+//     let n2 = setBin(multiplier);
+//     const m = Math.max(n1.length, n2.length);
+//     n1 = n1.padStart(m, '0');
+//     n2 = n2.padStart(m, '0');
+
+//     let br = setSigned(multiplicand, n1);
+//     let qr = setSigned(multiplier, n2);
+//     let br1 = twosComplement(br);
+
+//     output += `br                        : ${br}\n`;
+//     output += `br' ( in 2's complement ) : ${br1}\n`;
+//     output += `qr                        : ${qr}\n\n`;
+
+//     let ac = '0'.repeat(m + 1);
+//     let qn1 = '0';
+
+//     output += "Qn\tQn+1\t\tAC\tQR\tQn+1\tSC\n";
+//     output += "----------------------------------------------------\n";
+//     output += `\t\tInitial\t${ac}\t${qr}\t${qn1}\t${m + 1}\n\n`;
+
+//     for (let i = 0; i <= m; i++) {
+//         const qn = qr.slice(-1);
+//         let a = 0;
+
+//         if (qn === '1' && qn1 === '0') {
+//             a = 1;
+//             ac = addition(ac, br1);
+//             output += `${qn}\t${qn1}\tSub BR\t${br1}\n`;
+//             output += `\t\t\t${ac}\t${qr}\n\n`;
+//         } else if (qn === '0' && qn1 === '1') {
+//             a = 1;
+//             ac = addition(ac, br);
+//             output += `${qn}\t${qn1}\tAdd BR\t${br}\n`;
+//             output += `\t\t\t${ac}\t${qr}\n\n`;
+//         }
+
+//         qn1 = qr.slice(-1);
+//         qr = ac.slice(-1) + qr.substring(0, m);
+//         ac = ac.slice(0, 1) + ac.substring(0, m);
+
+//         if (a === 1) {
+//             output += `\t\tAshr\t${ac}\t${qr}\t${qn1}\t${m - i}\n`;
+//         } else {
+//             output += `${qn}\t${qn1}\tAshr\t${ac}\t${qr}\t${qn1}\t${m - i}\n`;
+//         }
+//     }
+
+//     let ans = ac + qr;
+//     if (ans.charAt(0) === '1') {
+//         output += `Result : ${ans}\n`;
+//         output += `Result in decimal: -${parseInt(twosComplement(ans), 2)}\n`;
+//     } else {
+//         output += `Result : ${ans}\n`;
+//         output += `Result in decimal: ${parseInt(ans, 2)}\n`;
+//     }
+
+//     console.log(output);
+// }
+
+
+// Main function to perform binary multiplication using Booth's algorithm
+function boothMultiplication(multiplicand, multiplier) {
+    let output = '<table border="1">';
+    output += '<tr><th>Qn</th><th>Qn+1</th><th>OPERATION</th><th>AC</th><th>Q</th><th>Qn+1</th><th>N</th></tr>';
+
+    let n1 = setBin(multiplicand);
+    let n2 = setBin(multiplier);
+    const m = Math.max(n1.length, n2.length);
+    n1 = n1.padStart(m, '0');
+    n2 = n2.padStart(m, '0');
+
+    let br = setSigned(multiplicand, n1);
+    let qr = setSigned(multiplier, n2);
+    let br1 = twosComplement(br);
+
+
+    output += `<tr><td></td><td></td><td>Initial</td><td>${'0'.repeat(m + 1)}</td><td>${qr}</td><td>${'0'}</td><td>${m + 1}</td></tr>`;
+    let ac = '0'.repeat(m + 1);
+    let qn1 = '0';
+
+    for (let i = 0; i <= m; i++) {
+        const qn = qr.slice(-1);
+        let a = 0;
+
+        if (qn === '1' && qn1 === '0') {
+            a = 1;
+            ac = addition(ac, br1);
+            output += `<tr><td>${qn}</td><td>${qn1}</td><td>Sub M</td><td>${br1}</td><td></td><td></td><td></td></tr>`;
+            output += `<tr><td></td><td></td><td></td><td>${ac}</td><td>${qr}</td><td></td><td></td></tr>`;
+        } else if (qn === '0' && qn1 === '1') {
+            a = 1;
+            ac = addition(ac, br);
+            output += `<tr><td>${qn}</td><td>${qn1}</td><td>Add M</td><td>${br}</td><td></td><td></td><td></td></tr>`;
+            output += `<tr><td></td><td></td><td></td><td>${ac}</td><td>${qr}</td><td></td><td></td></tr>`;
+        }
+
+        qn1 = qr.slice(-1);
+        qr = ac.slice(-1) + qr.substring(0, m);
+        ac = ac.slice(0, 1) + ac.substring(0, m);
+
+        if (a === 1) {
+            output += `<tr><td></td><td></td><td>SHIFT RIGHT</td><td>${ac}</td><td>${qr}</td><td>${qn1}</td><td>${m - i}</td></tr>`;
+        } else {
+            output += `<tr><td>${qn}</td><td>${qn1}</td><td>SHIFT RIGHT</td><td>${ac}</td><td>${qr}</td><td>${qn1}</td><td>${m - i}</td></tr>`;
+        }
+    }
+
+    let ans = ac + qr;
+    if (ans.charAt(0) === '1') {
+        output += `<tr><td colspan="6">Result : ${ans}</td><td>Result in decimal: -${parseInt(twosComplement(ans), 2)}</td></tr>`;
+    } else {
+        output += `<tr><td colspan="6">Result : ${ans}</td><td>Result in decimal: ${parseInt(ans, 2)}</td></tr>`;
+    }
+
+    output += '</table>';
+
+    document.getElementById("tableContainer").innerHTML = output;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -147,46 +252,6 @@ function bin2deci(num)
     return decimal;
 }
 //.........................
-
-
-
-
-
-
-
-
-
-
-
-
-//.....................................................
-function addBinaryStrings(binaryString1, binaryString2) {
-    let result = "";
-    let carry = 0;
-
-    let i = binaryString1.length - 1;
-    let j = binaryString2.length - 1;
-
-    while (i >= 0 || j >= 0 || carry > 0) {
-        const digit1 = (i >= 0) ? parseInt(binaryString1.charAt(i--)) : 0;
-        const digit2 = (j >= 0) ? parseInt(binaryString2.charAt(j--)) : 0;
-
-        const sum = digit1 + digit2 + carry;
-        result = (sum % 2) + result;
-        carry = Math.floor(sum / 2);
-    }
-
-    return result;
-}
-//.....................................................
-
-
-
-
-
-
-
-
 
 
 
@@ -241,15 +306,3 @@ function calculateTwosComplement(onesComplement) {
 
 
 
-
-
-
-
-function goToTheory() {
-    window.location.href = "restoring_theory.html";
-}
-
-
-window.addEventListener('popstate', function(event) {
-    window.location.href = '2_index.html'; // Replace with the URL of the website you want to link to
-});
