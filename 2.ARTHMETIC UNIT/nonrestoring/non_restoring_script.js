@@ -364,10 +364,10 @@ function generateTable() {
         {
             // Shift AQ
             A = A.substring(1) + Q.charAt(0);
-            tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
+            tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q.substring(1)+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
             // A = A+M
             A =  addBinaryStrings(A,M);
-            tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q+"_"  + "</td>  <td>" + "A = A+M" + "</td         </tr>";
+            tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q.substring(1)+"_"  + "</td>  <td>" + "A = A+M" + "</td         </tr>";
 
             tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q  + "</td>  <td>" + "Q = Q + 0" + "</td         </tr>";
 
