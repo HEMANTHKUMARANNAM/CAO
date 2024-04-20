@@ -173,7 +173,6 @@ function generateTable() {
 
 
 
-
 //.......................
 function deci2bin(num)
 {
