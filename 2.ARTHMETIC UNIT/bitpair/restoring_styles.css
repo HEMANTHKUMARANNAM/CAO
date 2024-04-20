@@ -71,3 +71,33 @@ th, td {
     flex-basis: 50%; /* Each button occupies half of the container */
 }
 
+#data
+{
+    text-align: left;
+    color: #45a049;
+}
+
+#data2
+{
+    text-align: left;
+    color: #45a049;
+}
+
+
+
+
+
+
+.meow {
+    color:black;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+#ans
+{
+    font-weight: bolder;
+    color: blue;
+}

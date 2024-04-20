@@ -10,29 +10,32 @@ function generateTable() {
 
 
 
-    
+    var datahtml = '<p class="meow" >1) Represent the numbers in Binary :</p>';
+
 
 
 
     if (decimalNumber < 0) {
         A = convert(A);
-        var datahtml = "<p>MULTIPLICANT(M) = " + decimalNumber + " (<span style='text-decoration: underline; color: red;'>1"  + "</span>"+ A+")</p>";
+        datahtml += "<p>MULTIPLICANT(A) = " + decimalNumber + " (<span style='text-decoration: underline; color: red;'>1"  + "</span>"+ A+")</p>";
         A = "1" + A;
     } else {
-        var datahtml = "<p>MULTIPLICANT(M) = " + decimalNumber + " (<span style='text-decoration: underline; color: red;'>0"  + "</span>"+ A+")</p>";
+        datahtml += "<p>MULTIPLICANT(A) = " + decimalNumber + " (<span style='text-decoration: underline; color: red;'>0"  + "</span>"+ A+")</p>";
         A = "0" + A;
     }
 
     if (decimalNumber2 < 0) {
         B = convert(B);
-        datahtml += "<p>MULTIPLICANT(M) = " + decimalNumber2 + " (<span style='text-decoration: underline; color: red;'>1"  + "</span>"+ B+")</p>";
+        datahtml += "<p>MULTIPLIER(B) = " + decimalNumber2 + " (<span style='text-decoration: underline; color: red;'>1"  + "</span>"+ B+")</p>";
         B = "1" + B;
     } else {
-        datahtml += "<p>MULTIPLICANT(M) = " + decimalNumber2 + " (<span style='text-decoration: underline; color: red;'>0"  + "</span>"+ B+")</p>";
+        datahtml += "<p>MULTIPLIER(B) = " + decimalNumber2 + " (<span style='text-decoration: underline; color: red;'>0"  + "</span>"+ B+")</p>";
         B = "0" + B;
     }
 
-    document.getElementById("data").innerHTML = datahtml;
+    datahtml += '<p class="meow" >2)Perform sign extension to make the number of bits of the operands equal.</p>';
+
+    
 
     if (A.length !== B.length) {
         if (A.length > B.length) {
@@ -59,16 +62,51 @@ function generateTable() {
         }
     }
 
+
+
+
+    datahtml += "<p>MULTIPLICANT(A) = " + A +"</p>";
+    datahtml += "<p>MULTIPLIER(B)   = " + B +"</p>";
+
+    datahtml += "<p>Length(n)  = " + A.length +"</p>";
+
     let count = B.length;
+
+    datahtml += '<p class="meow" >3)Append 0 to the least significant bit.</p>';
+
+    datahtml += "<p>MULTIPLIER(B) = (<span style='text-decoration: underline; color: red;'>0"  + "</span>"+ B+")</p>";
+
+
     B = B + "0";
+
+    datahtml += '<p class="meow" >4)If the multiplier has an odd number of bits (n is odd), perform sign extension(sign of multiplier).</p>';
+
 
     if (count % 2 === 1) {
         if (decimalNumber2 < 0) {
+            datahtml += "<p>MULTIPLIER(B) = (<span style='text-decoration: underline; color: red;'>1"  + "</span>"+ B+")</p>";
             B = "1" + B;
         } else {
+            datahtml += "<p>MULTIPLIER(B) = (<span style='text-decoration: underline; color: red;'>0"  + "</span>"+ B+")</p>";
+
             B = "0" + B;
         }
     }
+    else
+    {
+        datahtml += "<p>Not needed in this problem because n is even</p>";
+    }
+
+    datahtml += '<p class="meow" >5)Bitpair Table</p>';
+    document.getElementById("data").innerHTML = datahtml;
+
+
+
+    var tableHTML = "<table border='1'><tr><th style='color: black;'>B(i)B(i+1)B(i+2)</th><th style='color: black;'>Recoding</th></tr>";
+   
+
+   
+
 
     const bitpair = [];
 
@@ -77,26 +115,42 @@ function generateTable() {
         switch (temp) {
             case "000":
                 bitpair.push(0);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + 0 +"</td>    </tr>";
                 break;
             case "001":
+                bitpair.push(1);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + 1 +"</td>    </tr>";
+                break;
             case "010":
                 bitpair.push(1);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + 1 +"</td>    </tr>";
                 break;
             case "011":
                 bitpair.push(2);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + 2 +"</td>    </tr>";
                 break;
             case "100":
+                bitpair.push(-1);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -1 +"</td>    </tr>";
+                break;
             case "110":
                 bitpair.push(-1);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -1 +"</td>    </tr>";
                 break;
             case "101":
                 bitpair.push(-2);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -2 +"</td>    </tr>";
                 break;
             case "111":
                 bitpair.push(0);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + 0 +"</td>    </tr>";
                 break;
         }
     }
+
+    tableHTML += "</table>";
+
+    document.getElementById("bit_table").innerHTML = tableHTML;
 
     const setsize = A.length + 2 ** (bitpair.length - 1);
     const matrix = [];
@@ -163,7 +217,12 @@ function generateTable() {
         sum = addBinaryStrings(sum, new_matrix[i]);
     }
 
-    
+    datahtml = "";
+
+    datahtml += '<p class="meow" >6)Bitpair Multiplication</p>';
+    document.getElementById("data2").innerHTML = datahtml;
+
+
     const tableHtml = printCharactersAsRows(A,sum.length,bitpair,matrix,sum);
 
     // Inject the generated table HTML into an element with id "table-container"
@@ -171,9 +230,13 @@ function generateTable() {
 
 
 
-
     const ans = sum.substring(sum.length - setsize);
     const final_ans = parseInt(ans.substring(ans.length - setsize), 2);
+
+    var finalhtml =  '<p id = "ans" >' +  + ans + " = " + final_ans+ "</p>";
+
+    document.getElementById("final").innerHTML = finalhtml;
+
 
     if (final_ans === decimalNumber * decimalNumber2) {
         console.log("CORRECT");
