@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        .countdown {
+            display: flex;
+            justify-content: center;
+        }
+
+        #days, #hours, #minutes, #seconds {
+            margin: 0 10px;
+            font-size: 2rem;
+        }
+    </style>
+    <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -42,7 +53,40 @@
     <main>
         <p>website under development. Who want to contribute or feedback  contact 99220041106@klu.ac.in</p>
         <p>IF YOU NEED BITPAIR IMMEDIATELY FILL THE GOOGLE FORM</p>
+        <h2>COMING SOON </h2>
     </main>
+
+    <div class="countdown">
+        <div id="days"></div>
+        <div id="hours"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+    </div>
+    <script>
+        function countdown() {
+            const endDate = new Date("2024-04-20T13:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = endDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days + "d ";
+            document.getElementById("hours").innerText = hours + "h ";
+            document.getElementById("minutes").innerText = minutes + "m ";
+            document.getElementById("seconds").innerText = seconds + "s ";
+
+            if (timeLeft < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }
+
+        countdown();
+        const timer = setInterval(countdown, 1000);
+    </script>
 
 
 
