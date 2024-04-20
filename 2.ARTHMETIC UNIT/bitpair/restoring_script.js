@@ -130,15 +130,15 @@ function generateTable() {
                 tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + 2 +"</td>    </tr>";
                 break;
             case "100":
-                bitpair.push(-1);
-                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -1 +"</td>    </tr>";
+                bitpair.push(-2);
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -2 +"</td>    </tr>";
                 break;
             case "110":
                 bitpair.push(-1);
                 tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -1 +"</td>    </tr>";
                 break;
             case "101":
-                bitpair.push(-2);
+                bitpair.push(-1);
                 tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -2 +"</td>    </tr>";
                 break;
             case "111":
@@ -230,8 +230,31 @@ function generateTable() {
 
 
 
+    
+
+
+
     const ans = sum.substring(sum.length - setsize);
-    const final_ans = parseInt(ans.substring(ans.length - setsize), 2);
+
+    if( decimalNumber * decimalNumber2 <0)
+    {
+        sum = convert(sum);
+    }
+
+    // var final_ans="";
+
+    // if(decimalNumber*decimalNumber2 >0)
+    // {
+    //     final_ans = parseInt(ans, 2);
+    // }
+    // else
+    // {
+    //     final_ans = convert(final_ans)
+    //     final_ans = parseInt(ans, 2);
+    // }
+
+    var final_ans = parseInt(ans , 2);
+    
 
     var finalhtml =  '<p id = "ans" >' +  + ans + " = " + final_ans+ "</p>";
 
