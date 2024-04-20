@@ -339,7 +339,10 @@ function generateTable() {
 
     var n = A.length;
 
-    tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + M + "</td> <td>" + (A)+ "</td> <td>" + Q  + "</td>  <td>" + "INITIALIZE" + "</td         </tr>";
+    tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q  + "</td>  <td>" + "INITIALIZE" + "</td         </tr>";
+
+
+    // tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + M + "</td> <td>" + (A)+ "</td> <td>" + Q  + "</td>  <td>" + "INITIALIZE" + "</td         </tr>";
     // tableHTML += "<tr>  <td>" + " " + "</td>   <td>" + " " + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span style='color: blue;'>"+ A.substring(1) + "</span></td> <td>" + Q + "</td>  <td>" + "INITIALIZE" + "</td></tr>";
 
 
@@ -351,8 +354,16 @@ function generateTable() {
             A = A.substring(1) + Q.charAt(0);
             tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q.substring(1)+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
 
+            var temp = A.length;
+
             // A = A-M
             A =  addBinaryStrings(A,complement);
+            
+            if( A.length > temp )
+            {
+                A = A.substring(1);
+            }
+
 
             tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q.substring(1)+"_"  + "</td>  <td>" + "A = A-M" + "</td         </tr>";
 
@@ -365,8 +376,17 @@ function generateTable() {
             // Shift AQ
             A = A.substring(1) + Q.charAt(0);
             tableHTML += "<tr>  <td>" + n + "</td>   <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>" + Q.substring(1)+"_"  + "</td>  <td>" + "SHIFT LEFT AQ" + "</td         </tr>";
+            
+            var temp = A.length;
+
             // A = A+M
             A =  addBinaryStrings(A,M);
+
+            if( A.length > temp )
+            {
+                A = A.substring(1);
+            }
+
             tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q.substring(1)+"_"  + "</td>  <td>" + "A = A+M" + "</td         </tr>";
 
             tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q  + "</td>  <td>" + "Q = Q + 0" + "</td         </tr>";
