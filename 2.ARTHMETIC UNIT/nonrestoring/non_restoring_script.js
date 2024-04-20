@@ -291,7 +291,7 @@ function generateTable() {
 
 
     // Validate the input
-    if ( parseInt(divisor) < 0 || parseInt(divident) < 0 || parseInt(divident) > parseInt(divisor) ) {
+    if ( parseInt(divisor) < 0 || parseInt(divident) < 0 || parseInt(divident) < parseInt(divisor) ) {
         alert("Please enter valid positive numbers. divident must be greater than or equal to divisor. Divisor should be less than or equal to divident. Divisor: " + divisor + ", Divident: " + divident);
         return;
     }
