@@ -733,8 +733,15 @@ function generateTable() {
 
 
 
-    const ans = sum.substring(sum.length - setsize);
-    const final_ans = parseInt(ans.substring(ans.length - setsize), 2);
+    var ans = sum.substring(sum.length - setsize);
+    var final_ans = parseInt(ans, 2);
+
+
+    if( decimalNumber*decimalNumber2 <0 )
+    {
+        final_ans= parseInt( convert(ans) , 2 );
+        final_ans = -final_ans;
+    }
 
     var finalhtml =  '<p id = "ans" >' +  + ans + " = " + final_ans+ "</p>";
 
