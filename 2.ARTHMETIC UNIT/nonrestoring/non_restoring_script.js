@@ -391,7 +391,6 @@ function generateTable() {
 
             tableHTML += "<tr>   <td>" + " " + "</td>  <td>" + M + "</td> <td><span style='color: red;'>" + A.charAt(0) +"</span><span >"+ A.substring(1) + "</span></td> <td>"  + Q  + "</td>  <td>" + "Q = Q + 0" + "</td         </tr>";
 
-
         }
 
         Q = Q.substring(1);
@@ -409,13 +408,23 @@ function generateTable() {
         else
         {
             Q = Q + "0";
+            
         }
 
+
+        console.log( "Q , N= " + Q + " " + n);
+
         n--;
+
+        
 
 
 
     }
+
+    console.log("A = " + A);
+
+    
 
     if( A.charAt(0) == "1")
     {
