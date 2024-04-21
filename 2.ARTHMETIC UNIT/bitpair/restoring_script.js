@@ -638,7 +638,7 @@ function generateTable() {
                 break;
             case "101":
                 bitpair.push(-1);
-                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -2 +"</td>    </tr>";
+                tableHTML += "<tr>  <td>" +temp  + "</td>  <td>" + -1 +"</td>    </tr>";
                 break;
             case "111":
                 bitpair.push(0);
