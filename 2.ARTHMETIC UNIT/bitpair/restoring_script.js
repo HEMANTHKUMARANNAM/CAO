@@ -541,7 +541,7 @@ function generateTable() {
 
     if (A.length !== B.length) {
         if (A.length > B.length) {
-            if (decimalNumber2 > 0) {
+            if (decimalNumber2 >= 0) {
                 while (A.length !== B.length) {
                     B = "0" + B;
                 }
@@ -552,7 +552,7 @@ function generateTable() {
             }
         }
         if (B.length > A.length) {
-            if (decimalNumber > 0) {
+            if (decimalNumber >= 0) {
                 while (A.length !== B.length) {
                     A = "0" + A;
                 }
